@@ -1,0 +1,58 @@
+/* TABLES STYLES */
+.lib-table table {width:100%; border-collapse: collapse;clear:both;}
+.lib-table table tr.lib-row-headings th,
+.lib-table table tr.row-header th,
+.lib-table table tr.patFuncTitle th {text-align:left; background-color: #004875;color: #fff;font-size: inherit;font-weight:bold;border-bottom: 1px solid #bbb;}
+.lib-table table tr.lib-row-headings th a,
+.lib-table table tr.row-header th a { color: #fff !important; text-decoration: none;}
+.lib-table table tr.row-headings th,
+.lib-table table tr.patFuncHeaders th { text-align:left; background-color: #bbb;color: #363636;font-size: inherit;font-weight:bold;border-bottom: 1px solid #bbb; }
+tr.odd td,
+.lib-table tr.row-even td,
+.lib-table tr:nth-of-type(odd) td {background: #eee;}
+.lib-table tr td { border-bottom:1px solid #bbb;}
+.lib-table th,
+.lib-table td {padding:1.2em .5em;}
+.lib-table table tr.patFuncHeaders th a { color: #333 !important; } 
+
+/* Form Styles */
+.lib-form label{font-size:1em;margin: .6em 0;display:block;color: #333;font-weight: bold;text-transform: uppercase;}
+.lib-form input[type="text"],
+.lib-form input[type="password"],
+.lib-form input[type="email"],
+.lib-form textarea{width:96%;border:1px solid #ddd;font-size:1.1em;padding:.4em 1%;display:block;}
+.lib-form input[type="radio"],
+.lib-form input[type="checkbox"]{margin-top:.7em;}
+.lib-inline { display: inline-block !important;}
+
+/* Silly Illiadness */
+.statusNormal { display: none; }
+
+/* Accessibility link */
+.hide-accessible { position: absolute !important; clip: rect(1px, 1px, 1px, 1px); }
+
+/* Illiad menu */
+#cms-content h1 { float: left; }
+#cms-content h1 a { color: #333; text-decoration: none; }
+.lib-horizontal-list.right { list-style: none; float: right; font-size: .85em; }
+.lib-horizontal-list li { display: inline-block; }
+.lib-horizontal-list.right li { margin-left: 1em; }
+.lib-horizontal-list.right li a { text-decoration: none; /* color: #0065a4; */}
+
+
+#sub-navigation { margin-bottom: 1em;}
+#sub-navigation a { display: inline-block; margin-right: 1em; }
+
+/* Buttons */
+.menuClone {
+
+}
+
+@media screen and (min-width: 450px) {
+	#docdel-contact{ float: left;}
+}
+
+@media screen and (max-width: 900px) {
+	#sub-navigation a { display: block; margin: .5em 0;}
+
+}
