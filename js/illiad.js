@@ -48,7 +48,10 @@ var isIE = (function() { // Is this IE?
 		
 		$(".lib-table table:contains('Checked Out Items') th:contains('Due Date')").text("Due");
 		$(".lib-table table:contains('Checked Out Items') td:contains('Checked Out to Customer')").text("Checked Out");
-		$(".lib-table table:contains('Outstanding Requests')").find("a").text("Show");
+		$(".lib-table table:contains('Outstanding Requests')").find("a").each(function() {
+			var reqNo = $(this).text();
+			$(this).text("Show (" + reqNo + ")");
+		}
 
 		$("a.menuEdit:contains('Cancel')").css("color", "red").css("display", "block").css("float", "right");
 
@@ -167,17 +170,17 @@ var isIE = (function() { // Is this IE?
 
 				 		console.log("Getting here");
 
-				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text(renewNo + ": Renewals Allowed");
+				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text("Renewals Allowed (" + renewNo + ")");
 
 				 	} else { // Can be renewed
 
 				 		var renewLink = $("#renewalHack").find("a.menuRenew").attr("href");
-				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').attr("href", renewLink).attr("id", "lib-renew").text(renewNo + ": Renew");
+				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').attr("href", renewLink).attr("id", "lib-renew").text("Renew (" + renewNo + ")");
 
 				 	}
 					
 				 } else {
-					$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text(renewNo + ": No Renewals");
+					$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text("No Renewals (" + renewNo + ")");
 				 }
 				 
 			}); 
