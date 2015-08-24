@@ -167,17 +167,17 @@ var isIE = (function() { // Is this IE?
 
 				 		console.log("Getting here");
 
-				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text("Allowed");
+				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text(renewNo + ": Renewals Allowed");
 
 				 	} else { // Can be renewed
 
 				 		var renewLink = $("#renewalHack").find("a.menuRenew").attr("href");
-				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').attr("href", renewLink).attr("id", "lib-renew").text("Renew");
+				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').attr("href", renewLink).attr("id", "lib-renew").text(renewNo + ": Renew");
 
 				 	}
 					
 				 } else {
-					$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text("Not Allowed");
+					$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text(renewNo + ": No Renewals");
 				 }
 				 
 			}); 
