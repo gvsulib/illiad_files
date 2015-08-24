@@ -51,7 +51,7 @@ var isIE = (function() { // Is this IE?
 		$(".lib-table table:contains('Outstanding Requests')").find("a").each(function() {
 			var reqNo = $(this).text();
 			$(this).text("Show (" + reqNo + ")");
-		}
+		});
 
 		$("a.menuEdit:contains('Cancel')").css("color", "red").css("display", "block").css("float", "right");
 
