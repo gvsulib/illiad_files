@@ -61,14 +61,6 @@ var isIE = (function() { // Is this IE?
 				else { return false; }
 		});
 
-	/*  Look to see if the lib-renew link is visible on the page.
-		Hide it by default, and later we'll show it if renewals are allowed.
-	*/
-		if($("#lib-renew-link").length > 0) { // Yup.
-
-			$("#lib-renew-link").hide();
-
-		}
 
 	/*  Illiad's status messages are ridiculous. The text is rarely helpful,
 		and everything is written in a weird hybrid of computer- and 
