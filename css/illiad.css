@@ -42,7 +42,7 @@ tr.odd td,
 
 #sub-navigation { margin-bottom: 1em;}
 #sub-navigation a { display: inline-block; margin-right: 1em; }
-#cms-content a { color: #1F65A0;}
+#cms-content a { color: #1F65A0; text-decoration: none;}
 a.btn.btn-primary, .btn.btn-primary a { color: #fff !important;}
 a.btn.btn-default, .btn.btn-default a { color: #333 !important; }
 
