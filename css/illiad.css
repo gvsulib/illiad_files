@@ -42,11 +42,7 @@ tr.odd td,
 
 #sub-navigation { margin-bottom: 1em;}
 #sub-navigation a { display: inline-block; margin-right: 1em; }
-
-/* Buttons */
-.menuClone {
-
-}
+#cms-content a { color: #1F65A0;}
 
 @media screen and (min-width: 450px) {
 	#docdel-contact{ float: left;}
