@@ -160,7 +160,7 @@ var isIE = (function() { // Is this IE?
 				 	console.log(currentDate);
 				 	console.log(diff);
 
-				 	if(diff > 604800 || diff < -604800) { // Not during renewal period
+				 	if(diff > 691200 || diff < -691200) { // Not during renewal period
 
 				 		console.log("Getting here");
 
