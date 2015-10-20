@@ -155,7 +155,9 @@ var isIE = (function() { // Is this IE?
 				 	var currentDate = Math.round((new Date()).getTime() / 1000);
 
 				 	var diff = newDate - currentDate;
-
+				 	console.log(renewDate);
+				 	console.log(newDate);
+				 	console.log(currentDate);
 				 	console.log(diff);
 
 				 	if(diff > 604800 || diff < -604800) { // Not during renewal period
