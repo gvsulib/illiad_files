@@ -127,7 +127,7 @@ var isIE = (function() { // Is this IE?
 			$(".statusNormal").hide();
 
 			// Add a nice new one.
-			var newAlert = '<span class="alert alert-success" style="margin-bottom: 0;"><b>Got it!</b> We&#8217;ll ask the library we borrowed this from if you can have it until <b>' + dueDate + '</b><br />They probably will. We&#8217;ll email you only if they need it back now.</span>';
+			var newAlert = '<p class="alert alert-success" style="margin-bottom: 0;"><b>Got it!</b> We&#8217;ll ask the library we borrowed this from if you can have it until <b>' + dueDate + '</b><br />They probably will. We&#8217;ll email you only if they need it back now.</p>';
 
 			// Put it on the page
 			$("#status").prepend(newAlert);
