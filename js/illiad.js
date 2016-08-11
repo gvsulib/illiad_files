@@ -1,21 +1,60 @@
 var isIE = (function() { // Is this IE?
          var div = document.createElement('div');
          div.innerHTML = '<!--[if lt IE 9]><marquee></marquee><![endif]-->';
-         return (div.getElementsByTagName('marquee').length === 1);         
+         return (div.getElementsByTagName('marquee').length === 1);
       }());
 
  $(document).ready(function() {
-		
-		
+
+
 
 		function getQueryVar(varName){
-    
+
     		var queryStr = unescape(window.location.search) + '&';
 			var regex = new RegExp('.*?[&\\?]' + varName + '=(.*?)&.*');
 			val = queryStr.replace(regex, "$1");
 			return val == queryStr ? false : val;
 		}
-		
+
+    // Set cookie and show banner about reminder
+    // Cookie will show on the first visit to document delivery, and then will be hidden for 6 months if dismissed.
+
+    function createCookie(name,value,days)
+    {
+    	if (days) {
+    		var date = new Date();
+    		date.setTime(date.getTime()+(days*24*60*60*1000));
+    		var expires = "; expires="+date.toGMTString();
+    	}
+    	else var expires = "";
+    	document.cookie = name+"="+value+expires+"; path=/";
+    	$(".close").closest("#update-info").css("display","none");
+    }
+    function readCookie(name)
+    {
+    	var nameEQ = name + "=";
+    	var ca = document.cookie.split(';');
+    	for(var i=0;i < ca.length;i++) {
+    		var c = ca[i];
+    		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    	}
+    	return null;
+    }
+
+    if(readCookie('noPreview') !== 'prevent') {
+
+      console.log('Showing reminder banner');
+
+    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7); console.log(\'Setting cookie...\')" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+
+    	$("#main").prepend(newBanner);
+
+    } else {
+    console.log('Cookie preventing reminder banner.');
+    }
+
+
 		// Document Delivery Script
 
 		$("option:contains('LIB')").text("Mary Idema Pew Library @ Allendale");
@@ -39,13 +78,13 @@ var isIE = (function() { // Is this IE?
 			if(confirm("Are you sure you want to cancel this request?")) {
 				alert("Your request has been cancelled."); }
 				else { return false; }
-		}); 
+		});
 
 
 		$(".lib-table table tbody tr td a").addClass("editlink");
 		$(".lib-table table tbody tr td a:contains('Delete')").removeClass("editlink").addClass("delete-link");
 		$(".lib-table table tbody tr td a:contains('View')").removeClass("editlink").addClass("view-link");
-		
+
 		$(".lib-table table:contains('Checked Out Items') th:contains('Due Date')").text("Due");
 		$(".lib-table table:contains('Checked Out Items') td:contains('Checked Out to Customer')").text("Checked Out");
 		$(".lib-table table:contains('Outstanding Requests')").find("a").each(function() {
@@ -63,7 +102,7 @@ var isIE = (function() { // Is this IE?
 
 
 	/*  Illiad's status messages are ridiculous. The text is rarely helpful,
-		and everything is written in a weird hybrid of computer- and 
+		and everything is written in a weird hybrid of computer- and
 		librarian-ese. We'll hide some of the most offensive ones.
 	*/
 
@@ -78,14 +117,14 @@ var isIE = (function() { // Is this IE?
 				$('.statusNormal').hide();
 
 			} else { // Status might be useful. Style it appropriately.
-				
+
 				$('.statusNormal').addClass('alert').addClass('alert-warning').find('font').removeAttr('color');
 
 			}
 		}
-		
 
-	/*  Check to see if this is the request submitted page, 
+
+	/*  Check to see if this is the request submitted page,
 	 	the only place this status class appears
 	*/
 
@@ -101,7 +140,7 @@ var isIE = (function() { // Is this IE?
 
 			// Make sure we're really on the request received page,
 			// and check for item type
-			if(statusTextWords[1] == 'Request' && statusTextWords[2] == 'Received.' && statusTextWords[0 == 'Article']) { 
+			if(statusTextWords[1] == 'Request' && statusTextWords[2] == 'Received.' && statusTextWords[0 == 'Article']) {
 
 				// Item is an article. Make a readable status.
 				$('.statusInformation').html('<b>Got it!</b> Most articles come in 1-3 days. We&#8217;ll let you know when it&#8217;s here.');
@@ -114,8 +153,8 @@ var isIE = (function() { // Is this IE?
 		}
 
 		if($(".statusNormal").length > 0 && $(".statusNormal:last-child").text() == "There can be no further renewals.") {
-	
-			// This is the page you see when you've renewed an item. The dialogs are terrible. 
+
+			// This is the page you see when you've renewed an item. The dialogs are terrible.
 			// Let's fix that.
 
 			// Get the due date
@@ -132,8 +171,8 @@ var isIE = (function() { // Is this IE?
 			// Put it on the page
 			$("#status").prepend(newAlert);
 		}
-		
-		
+
+
 		if(isIE == false) { // Hide this function from IE 8 and below, because it chokes on $.load
 
 		$(".how-to-renew-items").hide();
@@ -172,16 +211,16 @@ var isIE = (function() { // Is this IE?
 				 		$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').attr("href", renewLink).attr("id", "lib-renew").text("Renew (" + renewNo + ")");
 
 				 	}
-					
+
 				 } else {
 					$(".lib-table table:contains('Checked Out Items')").find("a:contains(" + renewNo + ")").removeClass('editlink').text("No Renewals (" + renewNo + ")");
 				 }
-				 
-			}); 
-		
+
+			});
+
 		});
 		}
-	
+
 	var renewalPage = $(".lib-table").find("td:contains('Renewals Allowed')").next("td").text();
 
 	if(renewalPage == "Yes") { // Hide renewal button if renewals are not allowed during the time period
@@ -302,7 +341,7 @@ var isIE = (function() { // Is this IE?
 		// What to show when there are no tables on the home page
 
 		if(emptyTables == 3) {
-			
+
 			// Everything has been hidden! Quick, show something!
 
 			$("#main").prepend('<h2>You have no requests</h2><p>Document Delivery can get you electronic copies of articles and book chapters that <abbr title="Grand Valley State University">GVSU</abbr> doesn&#8217;t have online in a few days, or borrow books and more from other libraries, usually within a week.</p><p><div><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&amp;Form=22" class="btn btn-primary btn-lg">Request an Item Now</a></div></p><p><small>Need a book fast? <a href="http://elibrary.mel.org/search">Get it directly from another Michigan Library.</a></small></p>');
@@ -310,11 +349,11 @@ var isIE = (function() { // Is this IE?
 		} else {
 
 			function getItemNumbers(idDiv) {
-				
+
 				return $(idDiv).find("tbody").find("tr").length;
 
 			}
-				
+
 			// Show the dashboard graph
 
 				// Get number of items for each item type
