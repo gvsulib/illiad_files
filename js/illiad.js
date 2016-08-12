@@ -4,6 +4,30 @@ var isIE = (function() { // Is this IE?
          return (div.getElementsByTagName('marquee').length === 1);
       }());
 
+      function createCookie(name,value,days)
+      {
+      	if (days) {
+      		var date = new Date();
+      		date.setTime(date.getTime()+(days*24*60*60*1000));
+      		var expires = "; expires="+date.toGMTString();
+      	}
+      	else var expires = "";
+      	document.cookie = name+"="+value+expires+"; path=/";
+      	$(".close").closest("#update-info").css("display","none");
+      }
+
+      function readCookie(name)
+      {
+      	var nameEQ = name + "=";
+      	var ca = document.cookie.split(';');
+      	for(var i=0;i < ca.length;i++) {
+      		var c = ca[i];
+      		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      	}
+      	return null;
+      }
+
  $(document).ready(function() {
 
 
@@ -19,34 +43,13 @@ var isIE = (function() { // Is this IE?
     // Set cookie and show banner about reminder
     // Cookie will show on the first visit to document delivery, and then will be hidden for 6 months if dismissed.
 
-    function createCookie(name,value,days)
-    {
-    	if (days) {
-    		var date = new Date();
-    		date.setTime(date.getTime()+(days*24*60*60*1000));
-    		var expires = "; expires="+date.toGMTString();
-    	}
-    	else var expires = "";
-    	document.cookie = name+"="+value+expires+"; path=/";
-    	$(".close").closest("#update-info").css("display","none");
-    }
-    function readCookie(name)
-    {
-    	var nameEQ = name + "=";
-    	var ca = document.cookie.split(';');
-    	for(var i=0;i < ca.length;i++) {
-    		var c = ca[i];
-    		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    	}
-    	return null;
-    }
+
 
     if(readCookie('noPreview') !== 'prevent') {
 
       console.log('Showing reminder banner');
 
-    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7); console.log(\'Setting cookie...\')" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7)" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
 
     	$("#main").prepend(newBanner);
 
