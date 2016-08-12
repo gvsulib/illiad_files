@@ -49,7 +49,7 @@ var isIE = (function() { // Is this IE?
 
       console.log('Showing reminder banner');
 
-    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7)" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7)" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
 
     	$("#main").prepend(newBanner);
 
