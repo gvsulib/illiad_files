@@ -40,22 +40,7 @@ var isIE = (function() { // Is this IE?
 			return val == queryStr ? false : val;
 		}
 
-    // Set cookie and show banner about reminder
-    // Cookie will show on the first visit to document delivery, and then will be hidden for 6 months if dismissed.
 
-
-
-    if(readCookie('noPreview') !== 'prevent') {
-
-      console.log('Showing reminder banner');
-
-    	var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" onclick="createCookie(\'noPreview\',\'prevent\',7)" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
-
-    	$("#main").prepend(newBanner);
-
-    } else {
-    console.log('Cookie preventing reminder banner.');
-    }
 
 
 		// Document Delivery Script
@@ -399,6 +384,28 @@ var isIE = (function() { // Is this IE?
 
 		}
 	}
+
+  // Set cookie and show banner about reminder
+  // Cookie will show on the first visit to document delivery, and then will be hidden for 6 months if dismissed.
+
+
+
+  if(readCookie('noPreview') !== 'prevent') {
+
+    console.log('Showing reminder banner');
+
+    var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>Email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+
+    $("#main").prepend(newBanner);
+    $('.close').click(function() {
+      createCookie('noPreview','prevent',7);
+    });
+
+
+
+  } else {
+  console.log('Cookie preventing reminder banner.');
+  }
 
 });
 
