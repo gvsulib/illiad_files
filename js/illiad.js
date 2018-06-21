@@ -131,12 +131,12 @@ var isIE = (function() { // Is this IE?
 			if(statusTextWords[1] == 'Request' && statusTextWords[2] == 'Received.' && statusTextWords[0 == 'Article']) {
 
 				// Item is an article. Make a readable status.
-				$('.statusInformation').html('<b>Got it!</b> Most articles come in 1-3 days. We&#8217;ll let you know when it&#8217;s here.');
+				$('.statusInformation').addClass('alert alert-success').html('<b>Got it!</b> Most articles come in 1-3 days. We&#8217;ll let you know when it&#8217;s here.');
 
 			} else {
 
 				// Item is either a book or thesis. Make readable status.
-				$('.statusInformation').html('<b>Got it!</b> Loans from other libraries can take 1-2 weeks. We&#8217;ll let you know when it&#8217;s here.');
+				$('.statusInformation').addClass('alert alert-success').html('<b>Got it!</b> Loans from other libraries can take 1-2 weeks. We&#8217;ll let you know when it&#8217;s here.');
 			}
 		}
 
@@ -332,7 +332,7 @@ var isIE = (function() { // Is this IE?
 
 			// Everything has been hidden! Quick, show something!
 
-			$("#main").prepend('<h2>You have no requests</h2><p>Document Delivery can get you electronic copies of articles and book chapters that <abbr title="Grand Valley State University">GVSU</abbr> doesn&#8217;t have online in a few days, or borrow books and more from other libraries, usually within a week.</p><p><div><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&amp;Form=22" class="btn btn-primary btn-lg">Request an Item Now</a></div></p><p><small>Need a book fast? <a href="http://elibrary.mel.org/search">Get it directly from another Michigan Library.</a></small></p>');
+			$("#main").prepend('<h2 class="padding-none">You have no requests</h2><p>Document Delivery can get you electronic copies of articles and book chapters that <abbr title="Grand Valley State University">GVSU</abbr> doesn&#8217;t have online in a few days, or borrow books and more from other libraries, usually within a week.</p><p><div><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&amp;Form=22" class="btn btn-primary btn-lg">Request an Item Now</a></div></p><p><small>Need a book fast? <a href="http://elibrary.mel.org/search">Get it directly from another Michigan Library.</a></small></p>');
 
 		} else {
 
@@ -380,7 +380,7 @@ var isIE = (function() { // Is this IE?
 
 				}
 
-			$("#main_menu").prepend('<style>.dashboard-graph ul { list-style:none;margin:0 !important;padding:0}.dashboard-graph ul li { padding: .8em 1%; border-bottom: 1px solid #bbb; font-size: 1.1em; margin: 0;} .dashboard-graph b { display: inline-block; width: 75%; } .dashboard-graph span.number { display: inline-block; width: 20%; } .dashboard-graph span.graph { display:inline-block;width: 60%; } .dashboard-graph span.chart { display:inline-block; background-color: #069; height: 100%; } .dashboard-graph ul li:first-child { border-top: 1px solid #bbb; }.dashboard-graph ul li:nth-of-type(even) { background-color: #eee; }</style><div class="line"><h3 style="margin-bottom: 0;">Your Document Delivery</h3><div class="row"><div class="dashboard-graph span2"><ul><li><b>' + articleLabel + ':</b> <span class="number">' + totalArticles + '</span></li><li><b>' + requestLabel + ':</b> <span class="number">' + totalRequests + '</span></li><li><b>' + bookLabel + ':</b> <span class="number">' + totalBooks + '</span></li></ul></div><div class="span1" style="text-align: right;"><div style="margin-right: 5%;"><p>Need something? We&#8217;ll get it for you!</p><p><a href="illiad.dll?Action=10&amp;Form=22" class="btn btn-lg btn-primary">Request an Item Now</a></p></div></div></div></div>');
+			$("#main_menu").prepend('<style>.dashboard-graph ul { list-style:none;margin:0 !important;padding:0}.dashboard-graph ul li { padding: .8em 1%; border-bottom: 1px solid #bbb; font-size: 1.1em; margin: 0;} .dashboard-graph b { display: inline-block; width: 75%; } .dashboard-graph span.number { display: inline-block; width: 20%; } .dashboard-graph span.graph { display:inline-block;width: 60%; } .dashboard-graph span.chart { display:inline-block; background-color: #069; height: 100%; } .dashboard-graph ul li:first-child { border-top: 1px solid #bbb; }.dashboard-graph ul li:nth-of-type(even) { background-color: #eee; }</style><div class="line"><h3 style="margin-bottom: 0;">Your Document Delivery</h3><div class="row row-gutter"><div class="dashboard-graph col-8 col-sm-12 span2"><ul><li><b>' + articleLabel + ':</b> <span class="number">' + totalArticles + '</span></li><li><b>' + requestLabel + ':</b> <span class="number">' + totalRequests + '</span></li><li><b>' + bookLabel + ':</b> <span class="number">' + totalBooks + '</span></li></ul></div><div class="span1 col-4 col-sm-12" style="text-align: right;"><div style="margin-right: 5%;"><p>Need something? We&#8217;ll get it for you!</p><p><a href="illiad.dll?Action=10&amp;Form=22" class="btn btn-lg btn-primary">Request an Item Now</a></p></div></div></div></div>');
 
 		}
 	}
