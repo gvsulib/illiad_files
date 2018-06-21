@@ -410,7 +410,8 @@ var isIE = (function() { // Is this IE?
  
  if(readCookie('nomyName') !== 'prevent') {
  	 $('.close-myName').click(function() {
-      createCookie('noPreview','prevent',7);
+      createCookie('nomyName','prevent',7);
+      $('#myName-banner').hide();
     });
  	 console.log('Showing myName banner');
  } else {
