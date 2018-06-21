@@ -34,7 +34,7 @@ tr.odd td,
 /* Illiad menu */
 #cms-content h1 { float: left; }
 #cms-content h1 a { color: #333; text-decoration: none; }
-.lib-horizontal-list.right { list-style: none; float: right; font-size: .85em; }
+.lib-horizontal-list.right { list-style: none; float: right; }
 .lib-horizontal-list li { display: inline-block; }
 .lib-horizontal-list.right li { margin-left: 1em; }
 .lib-horizontal-list.right li a { text-decoration: none; /* color: #0065a4; */}
