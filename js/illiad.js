@@ -13,7 +13,7 @@ var isIE = (function() { // Is this IE?
       	}
       	else var expires = "";
       	document.cookie = name+"="+value+expires+"; path=/";
-      	$(".close").closest("#update-info").css("display","none");
+      	$(".close").closest(".update-info").css("display","none");
       }
 
       function readCookie(name)
@@ -394,10 +394,10 @@ var isIE = (function() { // Is this IE?
 
     console.log('Showing reminder banner');
 
-    var newBanner = '<div id="update-info" class="alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>myName, email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" class="btn btn-default close">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+    var newBanner = '<div id="update-info" class="update-info alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>myName, email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" class="btn btn-default close-preview">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
 
     $("#main").prepend(newBanner);
-    $('.close').click(function() {
+    $('.close-preview').click(function() {
       createCookie('noPreview','prevent',7);
     });
 
@@ -406,6 +406,17 @@ var isIE = (function() { // Is this IE?
   } else {
   console.log('Cookie preventing reminder banner.');
   }
+
+ 
+ if(readCookie('nomyName') !== 'prevent') {
+ 	 $('.close-myName').click(function() {
+      createCookie('noPreview','prevent',7);
+    });
+ 	 console.log('Showing myName banner');
+ } else {
+  	$('#myName-banner').hide();
+  	console.log('Cookie preventing myName banner.');
+ }
 
 });
 
