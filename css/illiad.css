@@ -57,6 +57,9 @@ a.btn.btn-primary:hover, .btn.btn-primary a:hover {
  color: #1b6ec2 !important;
 }
 
+#logonform label,
+#logonform input { display: block; }
+
 @media screen and (min-width: 450px) {
 	#docdel-contact{ float: left;}
 }
