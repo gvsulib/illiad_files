@@ -111,7 +111,7 @@ var isIE = (function() { // Is this IE?
 			}
 		}
 
-		$('.statusError').addClass('alert alert-danger');
+		
 
 
 	/*  Check to see if this is the request submitted page,
