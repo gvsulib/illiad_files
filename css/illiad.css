@@ -68,3 +68,8 @@ a.btn.btn-primary:hover, .btn.btn-primary a:hover {
 	#sub-navigation a { display: block; margin: .5em 0;}
 
 }
+
+.navigation {
+    z-index: 9 !important;
+    
+}
