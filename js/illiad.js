@@ -433,3 +433,8 @@ var isIE = (function() { // Is this IE?
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
+  	// Alert adding
+	var alertScript = document.createElement('script');
+alertScript.src = 'https://prod.library.gvsu.edu/labs/alert/alert.js';
+document.body.appendChild(alertScript);
