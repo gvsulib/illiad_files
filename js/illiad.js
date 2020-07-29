@@ -434,7 +434,4 @@ var isIE = (function() { // Is this IE?
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-  	// Alert adding
-	var alertScript = document.createElement('script');
-alertScript.src = 'https://prod.library.gvsu.edu/labs/alert/alert.js';
-document.body.appendChild(alertScript);
+  
