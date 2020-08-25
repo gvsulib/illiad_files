@@ -76,3 +76,8 @@ a.btn.btn-primary:hover, .btn.btn-primary a:hover {
     z-index: 9 !important;
     
 }
+
+/* COVID style changes for drop down location options */
+option#annis_option, option#frey_option, option#vari_option {
+	display: none;
+} 
