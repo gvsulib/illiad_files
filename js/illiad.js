@@ -138,7 +138,7 @@ var isIE = (function() { // Is this IE?
 			} else {
 
 				// Item is either a book or thesis. Make readable status.
-				$('.statusInformation').addClass('alert alert-success').html('<b>Got it!</b> Loans from other libraries can take 1-2 weeks. We&#8217;ll let you know when it&#8217;s here.');
+				$('.statusInformation').addClass('alert alert-success').html('<b>Got it!</b> Loans from other libraries can take a few weeks. We&#8217;ll let you know when it&#8217;s here.');
 			}
 		}
 
@@ -334,7 +334,7 @@ var isIE = (function() { // Is this IE?
 
 			// Everything has been hidden! Quick, show something!
 
-			$("#content_main").prepend('<h2 class="padding-none">You have no requests</h2><p>Document Delivery can get you electronic copies of articles and book chapters that <abbr title="Grand Valley State University">GVSU</abbr> doesn&#8217;t have online in a few days, or borrow books and more from other libraries, usually within a week.</p><p><div><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&amp;Form=22" class="btn btn-primary btn-lg">Request an Item Now</a></div></p><p><small>Need a book fast? <a href="http://elibrary.mel.org/search">Get it directly from another Michigan Library.</a></small></p>');
+			$("#content_main").prepend('<h2 class="padding-none">You have no requests</h2><p>Document Delivery can get you electronic copies of articles and book chapters that <abbr title="Grand Valley State University">GVSU</abbr> doesn&#8217;t have online in a few days, or borrow books and more from other libraries, usually within a week.</p><p><div><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&amp;Form=22" class="btn btn-primary btn-lg">Request an Item Now</a></div></p><!--p><small>Need a book fast? <a href="http://elibrary.mel.org/search">Get it directly from another Michigan Library.</a></small></p-->');
 
 		} else {
 
