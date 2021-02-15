@@ -387,6 +387,23 @@ var isIE = (function() { // Is this IE?
 		}
 	}
 
+// Record request that came from the catalog
+if($('#CitedIn').length > 0) {
+
+	var notesText = $('#CitedIn').val();
+
+	if(notesText !== '') {
+		var notesParts = notesText.split(" Record ");
+		var RecordNumber = notesParts[1];
+
+		$('body').append('<img src="https://prod.library.gvsu.edu/labs/illiad/mel.php?no=' + RecordNumber + '" alt="" />');
+	}
+
+
+}
+
+
+
   // Set cookie and show banner about reminder
   // Cookie will show on the first visit to document delivery, and then will be hidden for 6 months if dismissed.
 
