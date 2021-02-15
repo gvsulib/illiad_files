@@ -390,9 +390,11 @@ var isIE = (function() { // Is this IE?
 // Record request that came from the catalog
 if($('#CitedIn').length > 0) {
 
+	console.log('Checking for cited in information');
+
 	var notesText = $('#CitedIn').val();
 
-	if(notesText !== '') {
+	if(notesText.indexOf("Library Catalog Record") > -1) {
 		var notesParts = notesText.split(" Record ");
 		var RecordNumber = notesParts[1];
 
