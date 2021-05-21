@@ -48,7 +48,7 @@ var isIE = (function() { // Is this IE?
 		$("option:contains('LIB')").text("Mary Idema Pew Library @ Allendale");
 		$("option:contains('STEEL')").text("Steelcase Library @ DeVos");
 		$("option:contains('AWRI')").text("Annis Water Research Institute");
-		$("option:contains('FREY')").text("Frey Learning Center @ CHS");
+		$("option:contains('FREY')").text("Frey Foundation Learning Commons");
 		$("option:contains('OCS')").text("Ship books to me");
 		$("option:contains('VARI')").text("VanAndel Research Institute");
 		$("option:contains('ILL')").text("Please choose a location");
