@@ -404,6 +404,11 @@ if($('#CitedIn').length > 0) {
 
 }
 
+if($('#status .statusError').length > 0) {
+	$('#status .statusError').addClass('alert alert-danger');
+	$('.statusError').css('display','block').css('margin-bottom','.5em');
+}
+
 
 
   // Set cookie and show banner about reminder
