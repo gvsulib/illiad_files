@@ -49,18 +49,11 @@ var isIE = (function() { // Is this IE?
 		$("option:contains('STEEL')").text("Steelcase Library @ DeVos");
 		$("option:contains('AWRI')").text("Annis Water Research Institute");
 		$("option:contains('FREY')").text("Frey Foundation Learning Commons");
-		$("option:contains('OCS')").text("Ship books to me");
 		$("option:contains('VARI')").text("VanAndel Research Institute");
 		$("option:contains('ILL')").text("Please choose a location");
 
 		var pickupLoc  = $("select#NVTGC").val();
 
-		if(pickupLoc != "OCS") {
-			$(".illiad-mailing-address").hide();
-			$("#NVTGC").change(function(){
-				$(".illiad-mailing-address").toggle($(this).val()=='OCS');
-			});
-		}
 
 		$("#transactionMenu a.menuEdit:last").click(function() { // Add notification that item will be canceled.
 			if(confirm("Are you sure you want to cancel this request?")) {
@@ -420,7 +413,7 @@ if($('#status .statusError').length > 0) {
 
     console.log('Showing reminder banner');
 
-    var newBanner = '<div id="update-info" class="update-info alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>myName, email, address, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" class="btn btn-default close-preview">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
+    var newBanner = '<div id="update-info" class="update-info alert alert-info"> <h2>Have you updated your account in Document Delivery?</h2> <p>myName, email, and phone number changes in Banner don&#8217;t affect your Document Delivery account. Please take a moment to <a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close">update your information now</a>.</p> <ul style="list-style: none; margin-top: 1em; margin-left: 0;"> <li style="float: left;"><a href="https://gvsu.illiad.oclc.org/illiad/illiad.dll?Action=10&Form=81" class="close btn btn-primary" id="gvsu-preview">Review my account</a></li> <li style="float: right;"><a href="#" class="btn btn-default close-preview">No thanks</a></li> </ul><div style="clear:both;"</div></div>';
 
     $("#main").prepend(newBanner);
     $('.close-preview').click(function() {
